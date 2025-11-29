@@ -1,6 +1,6 @@
-# SkillSell
+# LearnMate
 
-SkillSell is a modern platform for uploading, selling, and buying online courses. Built with Next.js, TypeScript, Tailwind CSS, and Prisma/PostgreSQL, it provides a seamless experience for both course creators and learners.
+LearnMate is a modern platform for uploading, selling, and buying online courses. Built with Next.js, TypeScript, Tailwind CSS, and Prisma/PostgreSQL, it provides a seamless experience for both course creators and learners.
 
 ## 🚀 Features
 
@@ -27,7 +27,7 @@ SkillSell is a modern platform for uploading, selling, and buying online courses
 ## 📁 Project Structure
 
 ```
-SkillSell/
+LearnMate/
 │
 ├── actions/                # Server actions for data fetching
 ├── app/                    # Next.js app directory (routing, layouts, pages)
@@ -66,8 +66,8 @@ SkillSell/
 
 ```bash
 # Fork the repo on GitHub, then clone your fork
-git clone https://github.com/Yashh56/SkillSell.git
-cd SkillSell
+git clone https://github.com/Yashh56/LearnMate.git
+cd LearnMate
 ```
 
 ### 2. Install Dependencies

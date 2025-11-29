@@ -10,7 +10,7 @@ export const Logo = () => {
         width={20}
         alt="logo"
         src="/logo.svg"
-      /> SkillSell</p>
+      /> LearnMate</p>
 
     </Link>
   )
