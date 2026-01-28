@@ -17,10 +17,10 @@ const ChapterIdPage = async ({
   params: { courseId: string; chapterId: string }
 }) => {
   const { userId } = auth();
-  
+
   if (!userId) {
     return redirect("/");
-  } 
+  }
 
   const {
     chapter,
@@ -44,7 +44,7 @@ const ChapterIdPage = async ({
   const isLocked = !chapter.isFree && !purchase;
   const completeOnEnd = !!purchase && !userProgress?.isCompleted;
 
-  return ( 
+  return (
     <div>
       {userProgress?.isCompleted && (
         <Banner
@@ -65,7 +65,7 @@ const ChapterIdPage = async ({
             title={chapter.title}
             courseId={params.courseId}
             nextChapterId={nextChapter?.id}
-            playbackId={muxData?.playbackId!}
+            playbackId={muxData?.playbackId || ""}
             isLocked={isLocked}
             completeOnEnd={completeOnEnd}
           />
@@ -98,7 +98,7 @@ const ChapterIdPage = async ({
               <Separator />
               <div className="p-4">
                 {attachments.map((attachment) => (
-                  <a 
+                  <a
                     href={attachment.url}
                     target="_blank"
                     key={attachment.id}
@@ -116,7 +116,7 @@ const ChapterIdPage = async ({
         </div>
       </div>
     </div>
-   );
+  );
 }
- 
+
 export default ChapterIdPage;

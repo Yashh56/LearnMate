@@ -73,11 +73,17 @@ export const ChapterVideoForm = ({
             <Video className="h-10 w-10 text-slate-500" />
           </div>
         ) : (
-          <div className="relative aspect-video mt-2">
-            <MuxPlayer
-              playbackId={initialData?.muxData?.playbackId || ""}
-            />
-          </div>
+          initialData?.muxData?.playbackId ? (
+            <div className="relative aspect-video mt-2">
+              <MuxPlayer
+                playbackId={initialData.muxData.playbackId}
+              />
+            </div>
+          ) : (
+            <div className="flex items-center justify-center h-60 bg-slate-200 rounded-md">
+              <p className="text-slate-500 text-sm">Video is processing...</p>
+            </div>
+          )
         )
       )}
       {isEditing && (
@@ -91,7 +97,7 @@ export const ChapterVideoForm = ({
             }}
           />
           <div className="text-xs text-muted-foreground mt-4">
-           Upload this chapter&apos;s video
+            Upload this chapter&apos;s video
           </div>
         </div>
       )}

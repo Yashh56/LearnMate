@@ -71,7 +71,7 @@ export const VideoPlayer = ({
           </p>
         </div>
       )}
-      {!isLocked && (
+      {!isLocked && playbackId && (
         <MuxPlayer
           title={title}
           className={cn(
@@ -82,6 +82,14 @@ export const VideoPlayer = ({
           autoPlay
           playbackId={playbackId}
         />
+      )}
+      {!isLocked && !playbackId && (
+        <div className="absolute inset-0 flex items-center justify-center bg-slate-800 flex-col gap-y-2 text-secondary">
+          <Loader2 className="h-8 w-8 animate-spin" />
+          <p className="text-sm">
+            Video is processing...
+          </p>
+        </div>
       )}
     </div>
   )
