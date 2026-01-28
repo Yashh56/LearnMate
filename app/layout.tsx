@@ -5,6 +5,7 @@ import { ClerkProvider } from '@clerk/nextjs'
 import { ToastProvider } from '@/components/providers/toaster-provider'
 import { ConfettiProvider } from '@/components/providers/confetti-provider'
 import { Analytics } from "@vercel/analytics/next"
+import { ChunkErrorHandler } from '@/components/providers/chunk-error-handler'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -21,6 +22,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className={inter.className}>
+          <ChunkErrorHandler />
           <ConfettiProvider />
           <ToastProvider />
           <Analytics />
