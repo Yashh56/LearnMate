@@ -28,7 +28,7 @@ interface PriceFormProps {
 };
 
 const formSchema = z.object({
-  price: z.coerce.number(),
+  price: z.number().min(0),
 });
 
 export const PriceForm = ({
@@ -44,7 +44,7 @@ export const PriceForm = ({
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      price: initialData?.price || undefined,
+      price: initialData?.price || 0,
     },
   });
 

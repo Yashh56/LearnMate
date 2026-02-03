@@ -1,3 +1,5 @@
+@import "@uploadthing/react/styles.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -84,5 +86,3 @@ body,
 .ql-container {
   font-size: 16px !important;
 }
-
-@import "~@uploadthing/react/styles.css"

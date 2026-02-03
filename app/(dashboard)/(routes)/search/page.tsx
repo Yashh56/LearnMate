@@ -12,7 +12,7 @@ interface SearchPageProps {
   searchParams: {
     title: string;
     categoryId: string;
-  }
+  };
 };
 
 const SearchPage = async ({
