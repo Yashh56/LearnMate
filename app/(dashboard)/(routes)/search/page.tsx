@@ -47,7 +47,7 @@ const SearchPage = async ({
         <CoursesList items={courses} />
       </div>
     </>
-   );
+  );
 }
- 
+
 export default SearchPage;

@@ -40,6 +40,11 @@ export async function POST(
       return new NextResponse("Not found", { status: 404 });
     }
 
+    // Prevent teachers from buying their own courses
+    if (course.userId === user.id) {
+      return new NextResponse("You cannot purchase your own course", { status: 400 });
+    }
+
     const line_items: Stripe.Checkout.SessionCreateParams.LineItem[] = [
       {
         quantity: 1,

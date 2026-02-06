@@ -105,6 +105,7 @@ export const PriceForm = ({
                       disabled={isSubmitting}
                       placeholder="Set a price for your course"
                       {...field}
+                      onChange={(e) => field.onChange(e.target.valueAsNumber)}
                     />
                   </FormControl>
                   <FormMessage />

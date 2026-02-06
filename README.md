@@ -9,6 +9,7 @@ LearnMate is a modern platform for uploading, selling, and buying online courses
 - Purchase courses securely via Stripe
 - Student dashboard: track progress, view enrolled courses
 - Teacher dashboard: analytics, manage uploaded courses
+- **Multiple teachers support**: Add multiple teachers via environment variables
 - Advanced search & filter for courses
 - Ratings & Reviews for courses
 - File uploads (Uploadthing)
@@ -90,12 +91,15 @@ NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/
 DATABASE_URL=
 UPLOADTHING_SECRET=
 UPLOADTHING_APP_ID=
-MUX_TOKEN_ID = 
+MUX_TOKEN_ID =
 MUX_TOKEN_SECRET =
 STRIPE_API_KEY =
 NEXT_PUBLIC_APP_URL = http://localhost:3000
 STRIPE_WEBHOOK_SECRET =
-NEXT_PUBLIC_TEACHER_ID=  
+# Single teacher (legacy)
+NEXT_PUBLIC_TEACHER_ID=
+# Multiple teachers (recommended) - comma-separated list of Clerk user IDs
+NEXT_PUBLIC_TEACHER_IDS=user_id_1,user_id_2,user_id_3
 ```
 
 ### 4. Set Up the Database
@@ -124,7 +128,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## 🧪 Running Tests
 
-*(Add instructions here if you have tests set up, e.g. Jest, Cypress)*
+_(Add instructions here if you have tests set up, e.g. Jest, Cypress)_
 
 ## 🏗️ Building for Production
 
@@ -198,7 +202,6 @@ See individual route files in `app/api/` for details.
 ## 📝 License
 
 MIT License. See [LICENSE](LICENSE).
-
 
 ---
 

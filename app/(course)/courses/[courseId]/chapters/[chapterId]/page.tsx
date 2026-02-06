@@ -17,7 +17,7 @@ const ChapterIdPage = async ({
   params: { courseId: string; chapterId: string }
 }) => {
   const { userId } = auth();
-  
+
   if (!userId) {
     return redirect("/");
   }
@@ -25,7 +25,6 @@ const ChapterIdPage = async ({
   const {
     chapter,
     course,
-    muxData,
     attachments,
     nextChapter,
     userProgress,
@@ -43,8 +42,9 @@ const ChapterIdPage = async ({
 
   const isLocked = !chapter.isFree && !purchase;
   const completeOnEnd = !!purchase && !userProgress?.isCompleted;
+  const isOwner = course.userId === userId;
 
-  return ( 
+  return (
     <div>
       {userProgress?.isCompleted && (
         <Banner
@@ -82,12 +82,12 @@ const ChapterIdPage = async ({
                 nextChapterId={nextChapter?.id}
                 isCompleted={!!userProgress?.isCompleted}
               />
-            ) : (
+            ) : !isOwner ? (
               <CourseEnrollButton
                 courseId={params.courseId}
                 price={course.price!}
               />
-            )}
+            ) : null}
           </div>
           <Separator />
           <div>
@@ -98,7 +98,7 @@ const ChapterIdPage = async ({
               <Separator />
               <div className="p-4">
                 {attachments.map((attachment) => (
-                  <a 
+                  <a
                     href={attachment.url}
                     target="_blank"
                     key={attachment.id}
@@ -116,7 +116,7 @@ const ChapterIdPage = async ({
         </div>
       </div>
     </div>
-   );
+  );
 }
- 
+
 export default ChapterIdPage;

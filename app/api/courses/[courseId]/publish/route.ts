@@ -20,11 +20,7 @@ export async function PATCH(
         userId,
       },
       include: {
-        chapters: {
-          include: {
-            muxData: true,
-          }
-        }
+        chapters: true
       }
     });
 
@@ -52,5 +48,5 @@ export async function PATCH(
   } catch (error) {
     console.log("[COURSE_ID_PUBLISH]", error);
     return new NextResponse("Internal Error", { status: 500 });
-  } 
+  }
 }
